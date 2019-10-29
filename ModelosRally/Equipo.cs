@@ -5,13 +5,26 @@ namespace ModelosRally
 {
     public class Equipo
     {
-        string nombre;
+
         List<Vehiculo> vehiculos;
         List<Persona> tripulacion;
 
-        public Equipo(string nombre, Vehiculo vehiculoInicial, Persona piloto, Persona navegante)
+		private Persona piloto;
+		private Persona navegante;
+		private Vehiculo vehiculo;
+		private string nombre;
+
+		public Persona Piloto { get => piloto; set => piloto = value; }
+		public Persona Navegante { get => navegante; set => navegante = value; }
+		public Vehiculo Vehiculo { get => vehiculo; set => vehiculo = value; }
+		public string Nombre { get => nombre; set => nombre = value; }
+
+		public Equipo(string nombreInit, Vehiculo vehiculoInicial, Persona pilotoInit, Persona naveganteInit)
         {
-            this.nombre = nombre;
+            nombre = nombreInit;
+			piloto = pilotoInit;
+			vehiculo = vehiculoInicial;
+			navegante = naveganteInit;
 
             vehiculos = new List<Vehiculo>();
             vehiculos.Add(vehiculoInicial);
@@ -33,5 +46,10 @@ namespace ModelosRally
             return vehiculos;
         }
 
-    }
+		public override string ToString()
+		{
+			return nombre;
+		}
+
+	}
 }
